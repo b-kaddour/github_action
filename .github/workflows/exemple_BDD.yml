@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
  
     services:
-     image: MySQL
+     image: mysql:5.7
      env:
-     - MySQL_USER: kaddour
-     - MySQL_PASSWORD: boubou
-     - MySQL_BD: MySQL
+     - MySQL_DATABASE: comme_un_chef
+     - MySQL USER: kaddour
+     - MySQL PASSWORD: boubou
      ports:
-     - 5432:5432
+     - 33306:3306
      options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
   
     steps:
