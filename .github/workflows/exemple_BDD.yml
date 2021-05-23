@@ -7,14 +7,12 @@ jobs:
     runs-on: ubuntu-latest
  
     services:
-     image: mysql:5.7
-     env:
-      - MySQL_USER: root
-      - MySQL_PASSWORD: root
-      - MySQL_HOST: localhost
-     port:
-      - 3306:3306
-     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      image: mysql:5.7
+       env:
+         BD_USER: kaddour
+         DB_PASSWORD: boubou
+         MySQL_HOST: localhost
+      options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
   
     steps:
     - name: Run tests
