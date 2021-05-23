@@ -9,12 +9,11 @@ jobs:
     services:
      image: mysql:5.7
      env:
-      - MySQL_DATABASE: comme_un_chef
-      - MySQL USER: root
-      - MySQL PASSWORD: root
-      - MySQL HOST: localhost
-     ports:
-      - 5432:5432
+      - MySQL_USER: root
+      - MySQL_PASSWORD: root
+      - MySQL_HOST: localhost
+     port:
+      - 3307:3307
      options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
   
     steps:
