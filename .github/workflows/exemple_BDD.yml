@@ -1,19 +1,17 @@
 name: Test Workflow
-
 on: push
-
+env:
+  - MySQL_USER: root
+  - MySQL_PASSWORD: root
+  - MySQL_HOST: localhost
 jobs:
-  tests:
-    runs-on: ubuntu-latest
- 
-    services:
-      image: mysql:5.7
-       env:
-         BD_USER: kaddour
-         DB_PASSWORD: boubou
-         MySQL_HOST: localhost
-      options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-  
-    steps:
-    - name: Run tests
-      run: python manage.py test
+  tests:
+    runs-on: ubuntu-latest
+    services:
+     image: mysql:5.7
+     port:
+      - 3307:3307
+     options --health-cmd="mysqladmin ping" pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+    - name: Run tests
+      run: python manage.py test
