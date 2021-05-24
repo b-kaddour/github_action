@@ -30,4 +30,4 @@ jobs:
           done
 
       - name: Test
-        run: |
+        run: manage.py
